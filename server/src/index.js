@@ -2,7 +2,6 @@ const express = require('express')
 const routes = require('./routes')
 const cors = require('cors')
 const mongoose = require('mongoose')
-const { urlencoded } = require('express')
 
 const app = express()
 
