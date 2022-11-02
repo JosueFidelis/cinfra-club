@@ -5,10 +5,10 @@
       <input type="search" name="chords" id="chords" v-model="chords" />
       <label for="genre">Choose a genre:</label>
       <select id="genre" name="genre" v-model="genre">
-        <option value="volvo">Rock</option>
-        <option value="saab">Pop</option>
-        <option value="fiat">Samba</option>
-        <option value="audi">Pagode</option>
+        <option value="volvo">Sertanejo</option>
+        <option value="saab">Folk</option>
+        <option value="fiat">Pop Rock</option>
+        <option value="audi">Pop</option>
       </select>
       <button type="submit">enviar</button>
     </form>
@@ -27,8 +27,7 @@ export default {
     sendData(e) {
       e.preventDefault();
 
-      console.log(this.chords);
-      console.log(this.genre);
+      this.$store.dispatch("getSongs", this.chords, this.genre);
     },
   },
 };

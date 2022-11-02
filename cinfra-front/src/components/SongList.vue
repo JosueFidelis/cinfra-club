@@ -2,7 +2,7 @@
   <div>
     <div>
       <ul>
-        <li v-for="song in songs" :key="song.name">
+        <li v-for="song in getSongs" :key="song.name">
           <p>{{ song.name }}</p>
           <p>{{ song.link }}</p>
           <p>{{ song.chords.join(", ") }}</p>
@@ -14,6 +14,11 @@
 
 <script>
 export default {
+  computed: {
+    getSongs() {
+      return this.$store.state.songs;
+    },
+  },
   data() {
     return {
       songs: [
