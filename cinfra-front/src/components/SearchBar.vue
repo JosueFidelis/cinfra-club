@@ -18,10 +18,9 @@
       </div>
       <div>
         <select id="genre" name="genre" class="input" v-model="genre">
-          <option value="Sertanejo">Sertanejo</option>
-          <option value="Folk">Folk</option>
-          <option value="Pop Rock">Pop Rock</option>
-          <option value="Pop">Pop</option>
+          <option v-for="option in genreOptions" :key="option" :value="option">
+            {{ option }}
+          </option>
         </select>
       </div>
       <div>
@@ -37,15 +36,59 @@ export default {
     return {
       chords: "",
       genre: "",
+      genreOptions: [
+        "Todos",
+        "Gospel/Religioso",
+        "Sertanejo",
+        "Pop Rock",
+        "MPB",
+        "Forró",
+        "Rock and Roll",
+        "Hip Hop/Rap",
+        "Pop",
+        "Hard Rock",
+        "Surf Music",
+        "Rockabilly",
+        "Reggae",
+        "Pagode",
+        "Rock Progressivo",
+        "Soul",
+        "Bossa Nova",
+        "Rock",
+        "Brega",
+        "Alternativo",
+        "Indie",
+        "Folk",
+        "Heavy Metal",
+        "Grunge",
+        "R&B",
+        "Samba",
+        "Jovem Guarda",
+        "Reggaeton",
+        "Marchas/Hinos",
+        "Hardcore",
+        "Jazz",
+        "Infantil",
+        "Soft Rock",
+        "New Wave",
+        "Axé",
+        "Blues",
+        "Funk",
+        "Punk Rock",
+        "Instrumental",
+        "Regional",
+      ],
     };
   },
   methods: {
     sendData(e) {
       e.preventDefault();
 
+      const genreToSend = this.genre === "Todos" ? "" : this.genre;
+
       this.$store.dispatch("getSongs", {
         chords: this.chords,
-        genre: this.genre,
+        genre: genreToSend,
       });
     },
   },
@@ -71,8 +114,7 @@ export default {
 .input {
   border-radius: 25px;
   border: 2px solid rgb(0, 0, 0);
-  padding: 10px;
   width: 200px;
-  height: 10px;
+  height: 24px;
 }
 </style>
