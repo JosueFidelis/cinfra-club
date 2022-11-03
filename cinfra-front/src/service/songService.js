@@ -10,9 +10,9 @@ const apiClient = axios.create({
 });
 
 export default {
-  getSongs(chords, genre) {
+  getSongs(chords, genres) {
     const config = {
-      headers: { chords, genre },
+      headers: { chords, genres },
     };
 
     return apiClient.get("/songs", config);
