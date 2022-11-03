@@ -10,7 +10,7 @@
           name="chords"
           class="input"
           v-model="chords"
-          placeholder="Am*, C*, *"
+          placeholder="  Am*, C*, *"
         />
       </div>
       <div class="titles">
@@ -107,6 +107,7 @@ export default {
   border-radius: 10px;
   padding: 8px;
   padding-inline: 16px;
+  margin-bottom: 32px;
   color: #f1eee9;
   font-weight: bold;
 }
