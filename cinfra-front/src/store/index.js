@@ -19,10 +19,10 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    getSongs({ commit }, chords, genre) {
+    getSongs({ commit }, { chords, genre }) {
       let parsedChords = chords.replace(/\s/g, "");
       return songService
-        .getGenres(parsedChords, genre)
+        .getSongs(parsedChords, genre)
         .then((res) => {
           commit("SET_SONGS", res.data);
         })

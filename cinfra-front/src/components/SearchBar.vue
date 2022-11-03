@@ -43,7 +43,10 @@ export default {
     sendData(e) {
       e.preventDefault();
 
-      this.$store.dispatch("getSongs", this.chords, this.genre);
+      this.$store.dispatch("getSongs", {
+        chords: this.chords,
+        genre: this.genre,
+      });
     },
   },
 };
